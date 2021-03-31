@@ -1,7 +1,7 @@
 //Дисциплина: Java.Уровень 1
 //Домашнее задание №: 2 "Java.Основные конструкции"
 //Студент: Алексей Пирогов
-//Дата: 29.03.2021
+//Дата: 31.03.2021
 
 import java.util.Scanner;
 
@@ -23,8 +23,9 @@ public class HomeWorkApp_2 {
         infoMessage = "Введите любое целое положительно число для указания количества повторений цикла:";
         System.out.println("Задача 4.Иллюстрация работы цикла for, while и do...while для повторения вводимой строки заданное количество раз");
         repeatString(inputString("Введите любую строку, окончанием ввода считается нажатие клавиши Enter:"), inputNum(infoMessage));
+        pressAnyKey();
 
-        System.out.println("\nЗадача 5.Определение номера года на принадлежность множеству високосных годов");
+        System.out.println("Задача 5.Определение номера года на принадлежность множеству високосных годов");
         infoMessage = "Введите год - любое положительное число отличное от 0, но не более 6 знаков, ибо тормозит:";
         leapYear(inputNum(infoMessage));
     }
@@ -100,8 +101,9 @@ public class HomeWorkApp_2 {
     }
 
     //Ex.5(*) Високосный год
-    public static void leapYear(int numYear)
+    public static boolean leapYear(int numYear)
     {
+        boolean result = false;
         String otherYear = "";  //Переменная для вывода строки с предыдущими годами
         int divisor = 1; //Делитель для подсчёта количества значений и столбцов в выходных данных
 
@@ -112,6 +114,7 @@ public class HomeWorkApp_2 {
                 if (((numYear % 100) != 0) && ((numYear % 400) != 0) || ((numYear % 100) == 0) && ((numYear % 400) == 0))
                 {
                     System.out.println(numYear + " - год високосный! Перечень предыдущих високосных годов на основании математического подсчёта:");
+                    result = true;
                 }
                 else
                 {
@@ -166,6 +169,7 @@ public class HomeWorkApp_2 {
                 System.out.println("Где-то в параллельной вселенной время идёт вспять, наверное, но это не точно!\nА пока можно прочитать про нулевой год: https://ru.wikipedia.org/wiki/0_%D0%B3%D0%BE%D0%B4"+".");
             }
         }
+        return result;
     }
 
     //Заглушка для ожидания перехода к следующему шагу
